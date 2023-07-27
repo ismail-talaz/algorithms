@@ -1,5 +1,5 @@
-def insertion_sort(arr):                   # Best Case Time Complexity O(n)
-    for i in range(1, len(arr)):           # Average Case Time Complexity O(n^2)
+def insertion_sort(arr):                   # Best Case Time Complexity Ω(n)
+    for i in range(1, len(arr)):           
         key = arr[i]                       # Worst Case Time Complexity O(n^2)     
         j = i-1
         while j >= 0 and key < arr[j] :       # Slides the key element to the left until it reaches its position. 
