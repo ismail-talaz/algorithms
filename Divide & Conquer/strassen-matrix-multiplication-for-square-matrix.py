@@ -1,4 +1,5 @@
-import numpy as np             # If N=2 --> θ(1)
+import numpy as np             # MATRICES MUST BE SQUARE WITH EVEN-NUMBERED DIMENSONS.
+                               # If N=2 --> θ(1)
                                # Else --> T(N)=7T(N/2)+θ(N^2)
 def divide(mat):               # According to Master Theorem, we have T(N)=θ(N^(lg7)) which is faster than brute force θ(N^3) solution in pretty huge inputs.
     x, y = mat.shape           # However, another one is more advantageous when it comes to small inputs.
