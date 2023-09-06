@@ -62,6 +62,13 @@ class Heap:
 
         for key in load:
             self.insertKey(key)
+
+    def buildHeap2(self,load):
+        self.arr=load
+        self.heapSize=len(load)
+        last=(len(self.arr)//2)-1           # This buildhHeap2 function is better since it does not have to traverse leaf nodes. 
+        for i in range(last,-1,-1):
+            self.maxHeapify(i)
     
     def heapSort(self):
         
@@ -74,7 +81,7 @@ if __name__ == '__main__':
 
     myArray=[200,2,44,53,99,23,49]
     myHeap=Heap(len(myArray))
-    myHeap.buildHeap(myArray)
+    myHeap.buildHeap2(myArray)
     myHeap.heapSort()
     
 
