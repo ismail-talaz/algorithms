@@ -63,6 +63,13 @@ class Heap:
 
         for key in load:
             self.insertKey(key)
+
+    def buildHeap2(self,load):
+        self.arr=load
+        self.heapSize=len(load)
+        last=(len(self.arr)//2)-1
+        for i in range(last,-1,-1):
+            self.maxHeapify(i)
     
     def heapSort(self):
         
