@@ -65,9 +65,9 @@ class Heap:
     
     def heapSort(self):
         
-        for i in range(self.heapSize):
-            largest=self.removeKey()
-            self.arr[self.maxSize-i-1]=largest
+        for i in range(self.heapSize):                               # Heap Sort
+            largest=self.removeKey()                                 # Time Complexity O(nlgn)
+            self.arr[self.maxSize-i-1]=largest                       # Removes the current max element and insert into the rightmost place. -> Deletion O(logn) * O(n) (n times deletion)
         print(self.arr)
 
 if __name__ == '__main__':
