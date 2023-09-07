@@ -66,7 +66,7 @@ class Heap:
     def buildHeap2(self,load):
         self.arr=load
         self.heapSize=len(load)
-        last=(len(self.arr)//2)-1           # This buildhHeap2 function is better since it does not have to traverse leaf nodes. 
+        last=(len(self.arr)//2)-1           
         for i in range(last,-1,-1):
             self.maxHeapify(i)
     
