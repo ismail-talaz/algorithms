@@ -61,13 +61,13 @@ class Heap:
     
     def buildHeap(self,load):
 
-        for key in load:
+        for key in load:                # Time Complexity O(nlgn)
             self.insertKey(key)
 
-    def buildHeap2(self,load):
+    def buildHeap2(self,load): 
         self.arr=load
         self.heapSize=len(load)
-        last=(len(self.arr)//2)-1
+        last=(len(self.arr)//2)-1                   # Time Complexity O(N) 
         for i in range(last,-1,-1):
             self.maxHeapify(i)
     
