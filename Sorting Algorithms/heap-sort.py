@@ -32,11 +32,11 @@ class Heap:
             self.arr[largest],self.arr[i]=self.arr[i],self.arr[largest]
             self.maxHeapify(largest)
     
-    def removeKey(self):
+    def removeRoot(self): 
 
         if self.heapSize <= 0:
             return None
-        if self.heapSize == 1:
+        if self.heapSize == 1:             # The running time of removeRoot is O(logn)
             self.heapSize -= 1
             return self.arr[0]
         
@@ -57,24 +57,39 @@ class Heap:
         while i!=0 and self.arr[i]>self.arr[self.parent(i)]:
             self.arr[i],self.arr[self.parent(i)]=self.arr[self.parent(i)],self.arr[i]
             i=self.parent(i)
-    
+
+    def increaseKey(self,i,key):
+        if self.arr[i]>key:return
+        while i>0 and self.arr[self.parent(i)]<key:       # Running time O(logn)
+            self.arr[i]=self.arr[self.parent(i)]
+            i=self.parent(i)
+        self.arr[i]=key
+        
+    def removeKey(self,i):
+        if self.arr[i]>self.arr[self.heapSize-1]:
+            self.arr[i]=self.arr[self.heapSize-1]
+            self.maxHeapify(i)                            # Running time O(logn)
+        else:
+            self.increaseKey(i,self.arr[self.heapSize-1])
+        self.heapSize-=1
+
     def buildHeap(self,load):
 
-        for key in load:
+        for key in load:                # Time Complexity O(nlgn)
             self.insertKey(key)
 
-    def buildHeap2(self,load):
+    def buildHeap2(self,load): 
         self.arr=load
         self.heapSize=len(load)
-        last=(len(self.arr)//2)-1           
+        last=(len(self.arr)//2)-1                   # Time Complexity O(N) 
         for i in range(last,-1,-1):
             self.maxHeapify(i)
     
     def heapSort(self):
         
-        for i in range(self.heapSize):                               # Heap Sort
-            largest=self.removeKey()                                 # Time Complexity O(nlgn)
-            self.arr[self.maxSize-i-1]=largest                       # Removes the current max element and insert into the rightmost place. -> Deletion O(logn) * O(n) (n times deletion)
+        for i in range(self.heapSize):
+            largest=self.removeRoot()
+            self.arr[self.maxSize-i-1]=largest
         print(self.arr)
 
 if __name__ == '__main__':
