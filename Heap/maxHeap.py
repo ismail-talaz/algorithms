@@ -5,7 +5,6 @@ class Heap:
         self.maxSize=maxSize
         self.heapSize=0
         self.arr=[None]*maxSize
-    
 
     def parent(self,i):
         return (i-1)//2
