@@ -61,10 +61,18 @@ class Heap:
 
     def increaseKey(self,i,key):
         if self.arr[i]>key:return
-        self.arr[i]=key                                               # The running time is O(logn)
-        while i>0 and self.arr[self.parent(i)]<self.arr[i]:
-            self.arr[self.parent(i)],self.arr[i]=self.arr[i],self.arr[self.parent(i)]
+        while i>0 and self.arr[self.parent(i)]<key:       # Running time O(logn)
+            self.arr[i]=self.arr[self.parent(i)]
             i=self.parent(i)
+        self.arr[i]=key
+        
+    def removeKey(self,i):
+        if self.arr[i]>self.arr[self.heapSize-1]:
+            self.arr[i]=self.arr[self.heapSize-1]
+            self.maxHeapify(i)                            # Running time O(logn)
+        else:
+            self.increaseKey(i,self.arr[self.heapSize-1])
+        self.heapSize-=1
 
     def buildHeap(self,load):
 
