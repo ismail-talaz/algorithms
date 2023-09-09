@@ -33,7 +33,7 @@ class Heap:
             self.arr[largest],self.arr[i]=self.arr[i],self.arr[largest]
             self.maxHeapify(largest)
     
-    def removeKey(self):
+    def removeRoot(self):
 
         if self.heapSize <= 0:
             return None
@@ -74,6 +74,6 @@ class Heap:
     def heapSort(self):
         
         for i in range(self.heapSize):
-            largest=self.removeKey()
+            largest=self.removeRoot()
             self.arr[self.maxSize-i-1]=largest
         print(self.arr)
