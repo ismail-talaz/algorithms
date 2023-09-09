@@ -33,11 +33,11 @@ class Heap:
             self.arr[largest],self.arr[i]=self.arr[i],self.arr[largest]
             self.maxHeapify(largest)
     
-    def removeRoot(self):
+    def removeRoot(self): 
 
         if self.heapSize <= 0:
             return None
-        if self.heapSize == 1:
+        if self.heapSize == 1:             # The running time of removeRoot is O(logn)
             self.heapSize -= 1
             return self.arr[0]
         
@@ -58,7 +58,14 @@ class Heap:
         while i!=0 and self.arr[i]>self.arr[self.parent(i)]:
             self.arr[i],self.arr[self.parent(i)]=self.arr[self.parent(i)],self.arr[i]
             i=self.parent(i)
-    
+
+    def increaseKey(self,i,key):
+        if self.arr[i]>key:return
+        self.arr[i]=key                                               # The running time is O(logn)
+        while i>0 and self.arr[self.parent(i)]<self.arr[i]:
+            self.arr[self.parent(i)],self.arr[i]=self.arr[i],self.arr[self.parent(i)]
+            i=self.parent(i)
+
     def buildHeap(self,load):
 
         for key in load:                # Time Complexity O(nlgn)
