@@ -52,7 +52,7 @@ class Heap:
 
         self.heapSize+=1
         i=self.heapSize-1
-        self.arr[i]=key
+        self.arr.append(key)
 
         while i!=0 and self.arr[i]>self.arr[self.parent(i)]:
             self.arr[i],self.arr[self.parent(i)]=self.arr[self.parent(i)],self.arr[i]
