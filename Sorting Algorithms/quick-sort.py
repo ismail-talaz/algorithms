@@ -1,7 +1,7 @@
 def quickSort(arr,p,r):
     
     if p<r:
-        q=partition(arr,p,r)
+        q=hoarePartition(arr,p,r)
         quickSort(arr,p,q-1)
         quickSort(arr,q+1,r)                           # Worst-case Running Time -> O(n^2) when partition is unbalanced (n-1, 0)
                                                        # Average-case Running Time -> O(nlogn). Any split of constant proportionality yields O(nlogn).
