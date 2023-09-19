@@ -17,7 +17,7 @@ def countSortbyDigit(arr,d):
         counts[index]-=1
 
     for i in range(0, size):
-        arr[i] = result[i]
+        arr[i] = result[i]               #  Time Complexity O(d(n+k)), which d is maximum number of digits. Counting sort is used so as to sort by digit since it is stable sorting technique.
 
 def digit(num,d):
     num=str(num)
