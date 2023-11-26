@@ -1,12 +1,7 @@
 #ifndef BST_H
 #define BST_H
 
-#include <string>
-#include <vector>
 #include <iostream>
-#include <utility>
-#include <algorithm>
-using namespace std;
 
 template <class T>
 class Queue {
