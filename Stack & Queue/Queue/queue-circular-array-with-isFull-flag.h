@@ -26,6 +26,7 @@ class Queue {
         void enQueue(const T data);
         bool isEmpty();
         void print();
+        bool isFull();
         int size() const;
 };
 
@@ -66,6 +67,11 @@ void Queue<T>::deQueue(){
 template <class T>
 bool Queue<T>::isEmpty(){
     return (isFull == false) && ((back + 1) % MAX_SIZE == front);
+}
+
+template <class T>
+bool Queue<T>::isFull(){
+    return isFull;
 }
 
 
