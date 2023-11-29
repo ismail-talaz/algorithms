@@ -1,5 +1,5 @@
-#ifndef BST_H
-#define BST_H
+#ifndef QUEUE_H
+#define QUEUE_H
 
 #include <string>
 #include <vector>
