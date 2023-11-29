@@ -1,5 +1,5 @@
-#ifndef BST_H
-#define BST_H
+#ifndef QUEUE_H
+#define QUEUE_H
 
 #include <string>
 #include <vector>
@@ -26,7 +26,6 @@ class Queue {
         void enQueue(const T data);
         bool isEmpty();
         void print();
-        bool isFull();
         int size() const;
 };
 
@@ -69,11 +68,6 @@ bool Queue<T>::isEmpty(){
     return (isFull == false) && ((back + 1) % MAX_SIZE == front);
 }
 
-template <class T>
-bool Queue<T>::isFull(){
-    return isFull;
-}
-
 
 template <class T>
 void Queue<T>::print(){
@@ -84,17 +78,21 @@ void Queue<T>::print(){
     else{
         int index = front;
         std::cout << "Queue: ";
-        while (index != (back + 1) % MAX_SIZE) {
+        do {
             std::cout << items[index] << " ";
             index = (index + 1) % MAX_SIZE;
-        }
+        } while (index != (back + 1) % MAX_SIZE);
         std::cout << std::endl;
     }
 }
 
 template <class T>
 int Queue<T>::size() const {
-    return (back-front+1+MAX_SIZE)%MAX_SIZE;
+    if (back >= front) {
+        return back - front + 1;
+    } else {
+        return back + MAX_SIZE - front + 1;
+    }
 }
 
 
