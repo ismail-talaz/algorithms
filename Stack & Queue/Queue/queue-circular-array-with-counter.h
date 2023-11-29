@@ -1,5 +1,5 @@
-#ifndef BST_H
-#define BST_H
+#ifndef QUEUE_H
+#define QUEUE_H
 
 #include <string>
 #include <vector>
@@ -82,22 +82,18 @@ void Queue<T>::print(){
     else{
         int index = front;
         std::cout << "Queue: ";
-        while (index != (back + 1) % MAX_SIZE) {
+        do {
             std::cout << items[index] << " ";
             index = (index + 1) % MAX_SIZE;
-        }
+        } while (index != ((back + 1) % MAX_SIZE));
         std::cout << std::endl;
     }
 }
 
 template <class T>
 int Queue<T>::size() const {
-    return (back-front+1+MAX_SIZE)%MAX_SIZE;
+    return counter;
 }
-
-
-
-
 
 
 
